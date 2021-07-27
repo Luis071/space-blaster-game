@@ -292,9 +292,11 @@ GameObject:
   - component: {fileID: 1484032561}
   - component: {fileID: 1484032560}
   - component: {fileID: 1484032563}
+  - component: {fileID: 1484032565}
+  - component: {fileID: 1484032564}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: PlayerShipTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,6 +403,54 @@ MonoBehaviour:
   PlayerBulletGo: {fileID: 875209263322951778, guid: be73ff7b19273ed438e7e8e66b92843a, type: 3}
   Bala_posicion1: {fileID: 1241959834}
   Bala_posicion2: {fileID: 1611390555}
+  ExplosionGo: {fileID: 6658015299914294419, guid: 083aaab6a535d455084d5bd996eb3e30, type: 3}
+--- !u!50 &1484032564
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484032559}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1484032565
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484032559}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.72, y: 0.72}
+    newSize: {x: 0.72, y: 0.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.47}
+  m_EdgeRadius: 0
 --- !u!1 &1611390555
 GameObject:
   m_ObjectHideFlags: 0

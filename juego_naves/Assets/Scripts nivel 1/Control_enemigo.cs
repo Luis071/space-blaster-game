@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Control_enemigo : MonoBehaviour
 {
+    public GameObject ExplosionGo;
+
     float speed;
     // Start is called before the first frame update
     void Start()
@@ -29,4 +31,24 @@ public class Control_enemigo : MonoBehaviour
         }
         
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Detect collision of the enemy ship with the player ship, or with a player's bullet
+        if((col.tag == "PlayerShipTag")|| (col.tag == "PlayerBulletTag"))
+        {
+            PlayExplosion();
+            //Destroy this enemy ship
+            Destroy(gameObject);
+        }
+    }
+
+    //Funtion to instatiate an explosion
+	void PlayExplosion()
+	{
+		GameObject explosion = (GameObject)Instantiate (ExplosionGo);
+
+		//set the position of the explosion
+		explosion.transform.position =transform.position;
+	}
 }

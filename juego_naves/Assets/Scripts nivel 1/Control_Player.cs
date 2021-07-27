@@ -8,6 +8,7 @@ public class Control_Player : MonoBehaviour
 	public GameObject PlayerBulletGo;
 	public GameObject Bala_posicion1;
 	public GameObject Bala_posicion2;
+	public GameObject ExplosionGo; //this is our explosion prefab
 
 	// Use this for initialization
 	void Start()
@@ -64,5 +65,24 @@ public class Control_Player : MonoBehaviour
 
 		//Update the player's position
 		transform.position = pos;
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		//Detect collision of the player ship with an enemy ship, or with an enemy bullet
+		if((col.tag == "EnemyShipTag") || (col.tag == "EnemyBulletTag"))
+		{
+			PlayExplosion();
+			//Destroy(gameObject); //Destroy the player's ship
+		}
+	}
+
+	//Funtion to instatiate an explosion
+	void PlayExplosion()
+	{
+		GameObject explosion = (GameObject)Instantiate (ExplosionGo);
+
+		//set the position of the explosion
+		explosion.transform.position =transform.position;
 	}
 }

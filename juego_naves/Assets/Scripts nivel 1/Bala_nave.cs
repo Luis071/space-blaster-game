@@ -30,4 +30,14 @@ public class Bala_nave : MonoBehaviour
 
         
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Detect collision of the player bullet with an enemy ship
+        if(col.tag == "EnemyShipTag")
+        {
+            //Destroy this player bullet
+            Destroy(gameObject);
+        }
+    }
 }

@@ -54,4 +54,14 @@ public class Bala_enemiga : MonoBehaviour
         }
 
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //Detect collision of an enemy's bullet with the player ship
+        if(col.tag == "PlayerShipTag")
+        {
+            //Destroy this enemy's bullet
+            Destroy(gameObject);
+        }
+    }
 }
