@@ -12,7 +12,7 @@ public class EnemigoDisparando : MonoBehaviour
         Invoke("FireEnemyBullet", 1f);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame g
     void Update()
     {
         

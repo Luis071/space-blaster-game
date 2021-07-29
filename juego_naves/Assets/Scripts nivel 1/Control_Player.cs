@@ -1,14 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Control_Player : MonoBehaviour
 {
+	public GameObject GameManagerGO;
+	
 	public float speed;
 	public GameObject PlayerBulletGo;
 	public GameObject Bala_posicion1;
 	public GameObject Bala_posicion2;
 	public GameObject ExplosionGo; //this is our explosion prefab
+
+	//Reference to the lives ui text
+	public Text LivesUIText;
+
+	const int MaxLives = 3; // maximun player lives THIS
+	int lives; //Current player lives
+
+	public void Init()
+	{
+		lives = MaxLives;
+
+		//update the lives UI text
+		LivesUIText.text = lives.ToString();
+
+		//Reset de players position
+		transform.position = new Vector2 (0,0);
+
+		//set this player game object to active
+		gameObject.SetActive(true);
+	}
 
 	// Use this for initialization
 	void Start()
@@ -21,6 +44,9 @@ public class Control_Player : MonoBehaviour
 	{
 		if (Input.GetKeyDown("space"))
         {
+			//play audio
+			
+
 			GameObject bala1 = (GameObject)Instantiate(PlayerBulletGo);
 			bala1.transform.position = Bala_posicion1.transform.position;
 
@@ -73,7 +99,18 @@ public class Control_Player : MonoBehaviour
 		if((col.tag == "EnemyShipTag") || (col.tag == "EnemyBulletTag"))
 		{
 			PlayExplosion();
-			//Destroy(gameObject); //Destroy the player's ship
+			lives--; //subtract one live
+			LivesUIText.text = lives.ToString(); //update lives UI text
+
+			if(lives == 0) //if our player is dead
+			{
+				//Change game manager state to game over state
+				GameManagerGO.GetComponent<GameManager>().SetGameManagerState(GameManager.GameManagerState.GameOver);
+
+				//hide the player's ship
+				
+				gameObject.SetActive(false);
+			}
 		}
 	}
 
