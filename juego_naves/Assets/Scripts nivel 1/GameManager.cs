@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerShip;
     public GameObject enemySpawner;
     public GameObject GameOverGo;
+    public GameObject scoreUITextGO;
 
     public enum GameManagerState
     {
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
 
                 break;
             case GameManagerState.Gameplay:
+                //Reset the score
+                scoreUITextGO.GetComponent<GameScore>().Score = 0;
                 //hide play button
                 playButton.SetActive(false);
                 playerShip.GetComponent<Control_Player>().Init();

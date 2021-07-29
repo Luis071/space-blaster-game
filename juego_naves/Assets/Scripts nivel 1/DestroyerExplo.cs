@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyerExplo : MonoBehaviour
 {
+    //Destroy animation
     void DestroyGameObject()
     {
         Destroy (gameObject);

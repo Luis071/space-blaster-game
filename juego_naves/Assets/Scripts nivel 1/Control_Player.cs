@@ -26,6 +26,9 @@ public class Control_Player : MonoBehaviour
 		//update the lives UI text
 		LivesUIText.text = lives.ToString();
 
+		//Reset de players position
+		transform.position = new Vector2 (0,0);
+
 		//set this player game object to active
 		gameObject.SetActive(true);
 	}
@@ -41,6 +44,9 @@ public class Control_Player : MonoBehaviour
 	{
 		if (Input.GetKeyDown("space"))
         {
+			//play audio
+			
+
 			GameObject bala1 = (GameObject)Instantiate(PlayerBulletGo);
 			bala1.transform.position = Bala_posicion1.transform.position;
 
