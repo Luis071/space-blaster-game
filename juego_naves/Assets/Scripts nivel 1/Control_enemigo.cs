@@ -43,7 +43,7 @@ public class Control_enemigo : MonoBehaviour
             PlayExplosion();
 
             //Add 100 points to the score
-            scoreUITextGO.GetComponent<GameScore>().Score += 100;
+            scoreUITextGO.GetComponent<GameScore>().Score += 1000;
 
 
             //Destroy this enemy ship

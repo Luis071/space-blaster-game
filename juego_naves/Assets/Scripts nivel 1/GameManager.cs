@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject enemySpawner;
     public GameObject GameOverGo;
     public GameObject scoreUITextGO;
+    public GameObject GameTittleGO;
+
+
 
     public enum GameManagerState
     {
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
                 // Hide game over
                 GameOverGo.SetActive(false);
 
+                GameTittleGO.SetActive(true);
+
                 //Set play button visible
                 playButton.SetActive(true);
 
@@ -42,10 +47,20 @@ public class GameManager : MonoBehaviour
                 scoreUITextGO.GetComponent<GameScore>().Score = 0;
                 //hide play button
                 playButton.SetActive(false);
+
+                GameTittleGO.SetActive(false);
+
+
+
                 playerShip.GetComponent<Control_Player>().Init();
+
                 enemySpawner.GetComponent<Spawn_enemigo>().ScheduleEnemySpawner();
+
                 break;
+
             case GameManagerState.GameOver:
+
+
                 //Stop enemy spawner
                 enemySpawner.GetComponent<Spawn_enemigo>().UnscheduleEnemySpawner();
 

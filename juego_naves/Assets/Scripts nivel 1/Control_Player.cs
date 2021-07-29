@@ -45,6 +45,7 @@ public class Control_Player : MonoBehaviour
 		if (Input.GetKeyDown("space"))
         {
 			//play audio
+			GetComponent<AudioSource>().Play();
 			
 
 			GameObject bala1 = (GameObject)Instantiate(PlayerBulletGo);

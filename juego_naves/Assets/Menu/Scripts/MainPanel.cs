@@ -27,9 +27,9 @@ public class MainPanel : MonoBehaviour
         volumeMaster.onValueChanged.AddListener(ChangeVolumeMaster);
     }
 
-    public void PlayLevel(string juego)
+    public void PlayLevel(string levelName)
     {
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene(levelName);
     }
 
     public void ExitGame()
